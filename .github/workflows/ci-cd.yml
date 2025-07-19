@@ -1,10 +1,5 @@
 name: CI/CD - Gateway API
-#teste
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push]
 
 env:
   IMAGE_NAME: cadastro-api
