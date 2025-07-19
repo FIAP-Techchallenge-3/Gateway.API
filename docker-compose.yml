@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+
+  gateway-api:
+    build:
+      context: ./Gateway.API
+    ports:
+      - "8000:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - techchallenge
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    networks:
+      - techchallenge
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"
+    networks:
+      - techchallenge
+
+networks:
+  techchallenge:
+    driver: bridge

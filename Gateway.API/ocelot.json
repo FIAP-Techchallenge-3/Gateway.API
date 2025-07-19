@@ -1,6 +1,18 @@
 {
   "Routes": [
     {
+      "DownstreamPathTemplate": "/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/login",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
       "DownstreamPathTemplate": "/api/contatos",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -16,6 +28,10 @@
         "EnableRateLimiting": true,
         "Period": "1m",
         "Limit": 5
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthentication",
+        "AllowedScopes": []
       }
     },
     {
@@ -34,6 +50,10 @@
         "EnableRateLimiting": true,
         "Period": "1m",
         "Limit": 10
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthentication",
+        "AllowedScopes": []
       }
     }
   ]
