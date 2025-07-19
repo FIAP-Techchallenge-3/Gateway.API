@@ -2,7 +2,7 @@ name: CI/CD - Gateway API
 on: [push]
 
 env:
-  IMAGE_NAME: cadastro-api
+  IMAGE_NAME: gateway-api
   REGISTRY: docker.io
   DOCKER_USER: zennbyte
   DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
