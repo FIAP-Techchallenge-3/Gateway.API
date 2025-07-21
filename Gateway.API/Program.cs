@@ -30,6 +30,8 @@ builder.Services
 		};
 	});
 
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddAuthorization();
 
 builder.Services.AddOcelot(builder.Configuration);
